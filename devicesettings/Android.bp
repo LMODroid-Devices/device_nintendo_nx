@@ -41,8 +41,8 @@ android_app {
         "androidx.legacy_legacy-preference-v14",
         "androidx.leanback_leanback-preference",
         "androidx.leanback_leanback",
-        "org.lineageos.settings.resources",
-        "org.lineageos.platform.internal",
+        "com.libremobileos.settings.resources",
+        "framework-lmodroid.static",
         "vendor.nvidia.hardware.graphics.display-V1.0-java",
     ],
 }
