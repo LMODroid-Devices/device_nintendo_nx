@@ -21,7 +21,7 @@ TARGET_TEGRA_CEC      := aosp
 TARGET_TEGRA_KERNEL   ?= 4.9
 TARGET_TEGRA_KEYSTORE := software
 TARGET_TEGRA_LIGHT    ?= lineage
-TARGET_TEGRA_MAN_LVL  := 4
+TARGET_TEGRA_MAN_LVL  := 5
 TARGET_TEGRA_MEMTRACK ?= rel-shield-r
 TARGET_TEGRA_THERMAL  ?= lineage
 TARGET_TEGRA_WIDEVINE ?= rel-shield-r
@@ -144,9 +144,6 @@ PRODUCT_PACKAGES += \
     lkm_loader_target
 
 # Media config
-PRODUCT_COPY_FILES += \
-    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_ODM)/etc/media_codecs_google_audio.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_ODM)/etc/media_codecs_google_video.xml
 PRODUCT_PACKAGES += \
     media_codecs.xml \
     media_codecs_performance.xml \
