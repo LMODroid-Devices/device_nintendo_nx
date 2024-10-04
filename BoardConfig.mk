@@ -51,7 +51,10 @@ BOARD_CUSTOM_BT_CONFIG := device/nintendo/nx/comms/vnd_nx.txt
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/nintendo/nx/comms
 
 # Charger
-WITH_LINEAGE_CHARGER := false
+WITH_LMODROID_CHARGER := false
+
+# DPI
+TARGET_SCREEN_DENSITY := 186
 
 # Fingerprint override
 BUILD_FINGERPRINT := NVIDIA/nx/nx:11/RQ1A.210105.003/7825230_3167.5736:user/release-keys
@@ -75,8 +78,10 @@ include device/nintendo/nx/modules.mk
 
 # Kernel Image Parameters
 BOARD_KERNEL_IMAGE_NAME        := Image.gz
-BOARD_KERNEL_LOAD_BASE         := 0x88000000
-BOARD_MKBOOTIMG_ARGS           := --base $(BOARD_KERNEL_LOAD_BASE)
+BOARD_MKBOOTIMG_ARGS           := \
+    --base 0x80000000 \
+    --kernel_offset 0x200000 \
+    --ramdisk_offset 0x4000000
 
 # Recovery
 TARGET_RECOVERY_DENSITY      := hdpi
@@ -101,5 +106,9 @@ PRODUCT_FULL_TREBLE_OVERRIDE           := true
 # Verity
 # Only needed for signing
 BOARD_AVB_ENABLE := false
+
+# Wi-Fi
+WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
+WIFI_AVOID_IFACE_RESET_MAC_CHANGE := true
 
 include device/nvidia/t210-common/BoardConfigCommon.mk

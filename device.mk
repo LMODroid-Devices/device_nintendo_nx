@@ -24,9 +24,9 @@ TARGET_TEGRA_LIGHT    ?= lineage
 TARGET_TEGRA_MAN_LVL  := 5
 TARGET_TEGRA_MEMTRACK ?= rel-shield-r
 TARGET_TEGRA_THERMAL  ?= lineage
+TARGET_TEGRA_UBOOT    := prebuilt
 TARGET_TEGRA_WIDEVINE ?= rel-shield-r
 TARGET_TEGRA_WIFI     ?= bcm
-
 TARGET_TEGRA_WIREGUARD ?= compat
 
 include device/nvidia/t210-common/t210.mk
@@ -34,14 +34,10 @@ include device/nvidia/t210-common/t210.mk
 # Properties
 include device/nintendo/nx/properties.mk
 
-PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi tvdpi mdpi
-PRODUCT_AAPT_CONFIG := normal large xlarge
 ifeq ($(PRODUCT_IS_ATV),true)
 PRODUCT_CHARACTERISTICS   := tv
-PRODUCT_AAPT_PREF_CONFIG  := tvdpi
 else
 PRODUCT_CHARACTERISTICS   := tablet
-PRODUCT_AAPT_PREF_CONFIG  := xhdpi
 endif
 
 PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := true
@@ -107,8 +103,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     nx_cec.rc \
-    cec_disable.xml \
-    RC_for_stdp2550_cec
+    cec_disable.xml
 
 # Device Settings
 PRODUCT_PACKAGES += \
@@ -123,6 +118,10 @@ PRODUCT_PACKAGES += \
 ifeq ($(WITH_GMS),true)
 WITH_GMS_COMMS_SUITE := false
 endif
+
+# Input
+PRODUCT_PACKAGES += \
+    excluded-input-devices.xml
 
 # Joycons
 PRODUCT_PACKAGES += \
