@@ -29,7 +29,7 @@ TARGET_COPY_OUT_ODM                    := odm
 TARGET_COPY_OUT_PRODUCT                := product
 TARGET_COPY_OUT_VENDOR                 := vendor
 
--include vendor/lineage/config/BoardConfigReservedSize.mk
+-include vendor/lmodroid/config/BoardConfigReservedSize.mk
 
 BOARD_NVIDIA_DYNAMIC_PARTITIONS_PARTITION_LIST := product system system_ext vendor odm
 BOARD_NVIDIA_DYNAMIC_PARTITIONS_SIZE           := 6169821184
@@ -52,7 +52,7 @@ BOARD_CUSTOM_BT_CONFIG := device/nintendo/nx/comms/vnd_nx.txt
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/nintendo/nx/comms
 
 # Charger
-WITH_LINEAGE_CHARGER := false
+WITH_LMODROID_CHARGER := false
 
 # DPI
 TARGET_SCREEN_DENSITY := 186
