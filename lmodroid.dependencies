@@ -14,8 +14,7 @@
     "target_path": "hardware/nintendo/joycond"
   },
   {
-    "remote": "lineage",
-    "repository": "android_kernel_nvidia_cypress-fmac-upstream",
+    "repository": "LMODroid-Devices/kernel_nvidia_cypress-fmac-upstream",
     "target_path": "kernel/nvidia/cypress-fmac-upstream"
   },
   {
