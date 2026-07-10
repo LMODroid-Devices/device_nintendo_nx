@@ -9,6 +9,7 @@ allow jc_setup jc_setup_exec:file { execute_no_trans open };
 init_daemon_domain(jc_setup)
 
 # Allow jc_setup to utilize the tools it needs
+allow jc_setup self:capability chown;
 allow jc_setup vendor_shell_exec:file rx_file_perms;
 not_full_treble(`allow jc_setup shell_exec:file rx_file_perms;')
 
@@ -22,9 +23,6 @@ allow jc_setup jc_setup_exec:file ioctl;
 r_dir_file(jc_setup, factory_file)
 allow jc_setup mnt_vendor_file:dir r_dir_perms;
 
-# Just make jc_setup permissive - due to the below neverallows
-userdebug_or_eng(`
-    permissive jc_setup;
-')
 # Allow editing BT pairing data - NEVERALLOW
-#allow jc_setup bluetooth_data_file:file rw_file_perms;
+allow jc_setup bluetooth_data_file:dir create_dir_perms;
+allow jc_setup bluetooth_data_file:file create_file_perms;
